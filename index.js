@@ -1,6 +1,7 @@
 const express = require("express");
 
 const app = express();
+app.use(express.json());
 
 const users = [
     {
@@ -62,6 +63,23 @@ app.get("/users/cg/students/name/:name", (req, res) => {
     const answer = users.find(u => u.studentName.toLowerCase() === names.toLowerCase())
 
     res.status(200).json(answer);
+});
+
+
+
+app.post("/users/post", (req, res) => {
+  const newUser = {
+    id: users.length + 1,
+    name: req.body.name,
+    role: req.body.role
+  };
+
+  users.push(newUser);
+
+  res.status(201).json({
+    message: "User created",
+    user: newUser
+  });
 });
 
 
