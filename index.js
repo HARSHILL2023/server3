@@ -45,16 +45,16 @@ app.get("/users/cg", (req, res) => {
     res.status(200).json(users);
 });
 
-// app.get("/users/cg/students/:id", (req, res) => {
+app.get("/users/cg/students/gr/:id", (req, res) => {
 
-//     const num = req.params.id;
+    const num = req.params.id;
 
-//     const findd = users.find(u => u.UniversityUID === num)
+    const findd = users.find(u => u.UniversityUID === num)
 
-//     res.status(200).json(findd);
-// });
+    res.status(200).json(findd);
+});
 
-app.get("/users/cg/students/:name", (req, res) => {
+app.get("/users/cg/students/name/:name", (req, res) => {
 
     const names = req.params.name
    
